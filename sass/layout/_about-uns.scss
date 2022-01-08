@@ -1,0 +1,31 @@
+.title-about-uns {
+  font-family: var(--main-font, sans-serif);
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--title-text-color, black);
+}
+.text-about-uns {
+  font-family: var(--main-font, sans-serif);
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  margin-top: 10px;
+}
+.about-list {
+  display: flex;
+}
+.about-item:not(:last-child) {
+  margin-right: 30px;
+}
+.about-uns-icon {
+  width: 270px;
+  height: 120px;
+  background-color: var(--background-color);
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
