@@ -13,24 +13,20 @@
     background-size: cover;
   }
   
-  .title-hero {
+  .hero__title {
+    @include font(44px, 1.36, 0.06em);
     font-family: var(--main-font, sans-serif);
     font-style: normal;
     font-weight: 900;
-    font-size: 44px;
-    line-height: 1.36;
-    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--logo-white-color, white);
     text-align: center;
   }
-  .button-hero {
+  .hero__button {
+    @include font(16px, 1.87, 0.06em);
     font-family: var(--main-font, sans-serif);
     font-style: normal;
     font-weight: 700;
-    font-size: 16px;
-    line-height: 1.87;
-    letter-spacing: 0.06em;
     background-color: var(--background-button-color-blue, blue);
     color: var(--text-button-color, white);
     border-radius: 4px;

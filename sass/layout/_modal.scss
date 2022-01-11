@@ -11,7 +11,12 @@
 .backdrop.is-hidden .modal {
   transform: translate(-50%, -50%) scale(0.5);
 }
-
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+/*---------modal---------*/
 .modal {
   width: 528px;
   min-height: 581px;
@@ -23,88 +28,77 @@
   transform: translate(-50%, -50%) scale(1);
   transition: transform 250ms var(--cubic-bezier);
 }
-.modal-close {
+.modal__close {
   width: 30px;
   height: 30px;
+  @include display();
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background: #ffffff;
   cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: absolute;
   top: 8px;
   right: 8px;
   transition: fill 250ms var(--cubic-bezier);
-}
-.modal-close:hover,
-.modal-close:focus {
+  &:hover,
+  &:focus {
   fill: var(--active-color);
   outline-color: var(--active-color);
 }
-
-.is-hidden {
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
 }
-.form-modal {
+.modal-form {
   padding: 40px;
 }
-.form-modal p {
+.modal-form__title {
+  @include font(20px, 1.12, 0.03em);
   margin-bottom: 12px;
   color: #212121;
-  letter-spacing: 0.03em;
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 1.12;
+  font-weight: 700;
   text-align: center;
 }
 
-.form-label,
-.form-comment-label {
+.modal-form__label,
+.modal-form__comment {
+  @include font(12px, 1.16, 0.01em);
   display: block;
   margin-bottom: 10px;
-  font-size: 12px;
   color: var(--text-color);
-  letter-spacing: 0.01em;
-  line-height: 1.16;
 }
-.form-comment-label {
+.modal-form__comment {
   margin-bottom: 20px;
 }
-.form-title {
+.modal-form__text {
   display: block;
   margin-bottom: 4px;
 }
-.positioner {
+.modal-form__wrap {
   position: relative;
   display: block;
 }
-.form-input {
+.modal-form__input {
   width: 100%;
   height: 40px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   padding: 12px 2px 12px 42px;
   cursor: pointer;
+  &:focus {
+    border: none;
+    outline: 1px solid var(--active-color);
+  }
 }
-.icons-form {
+
+.modal-form__icons {
   position: absolute;
   top: 50%;
   left: 12px;
   transform: translateY(-50%);
   cursor: pointer;
+  .modal-form__input:focus + & {
+    fill: var(--active-color);
+  } 
 }
-.form-input:focus {
-  border: none;
-  outline: 1px solid var(--active-color);
-}
-.form-input:focus + .icons-form {
-  fill: var(--active-color);
-}
-.form-comment-text {
+.modal-form__texterea {
   resize: none;
   width: 100%;
   height: 120px;
@@ -112,33 +106,27 @@
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   margin-top: 4px;
+  &:focus {
+    border: none;
+    outline: 1px solid var(--active-color);
+  }
+  &.modal-form__texterea::placeholder {
+    color: rgba(117, 117, 117, 0.5);
+    @include font(12px, 1.16, 0.01em);
+  }
 }
-.form-comment-text:focus {
-  border: none;
-  outline: 1px solid var(--active-color);
-}
-.form-comment-text::placeholder {
-  color: rgba(117, 117, 117, 0.5);
-  font-size: 12px;
-  line-height: 1.16;
-  letter-spacing: 0.01em;
-}
-.form-checkbox-label {
-  font-size: 14px;
-  line-height: 1.71;
+.checkbox {
+  @include font(14px, 1.71, 0.03em);
   color: var(--text-color);
-  letter-spacing: 0.03em;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include display();
   margin-bottom: 30px;
 }
-.form-checkbox-label a {
+.checkbox__link {
   color: var(--active-color);
   margin-left: 6px;
 }
-.form-checkbox {
+.checkbox__input {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -148,27 +136,24 @@
   overflow: hidden;
   clip: rect(0 0 0 0);
 }
-.icon-checkbox {
+.checkbox__icon {
   width: 16px;
   height: 15px;
   border: 2px solid #212121;
   border-radius: 4px;
   margin-right: 7px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include display();
   fill: transparent;
+  .checkbox__input:checked + & {
+    background-color: var(--active-color);
+    border: transparent;
+    fill: var(--background-color);
+  }
 }
-.form-checkbox:checked + .icon-checkbox {
-  background-color: var(--active-color);
-  border: transparent;
-  fill: var(--background-color);
-}
-.button-form-send {
-  font-size: 16px;
+
+.modal-form__button {
+  @include font(16px, 1.87, 0.06em);
   font-weight: 700;
-  line-height: 1.87;
-  letter-spacing: 0.06em;
   color: var(--background-color);
   background-color: var(--active-color);
   border: none;
@@ -178,8 +163,8 @@
   margin: 0 auto;
   cursor: pointer;
   transition: box-shadow 250ms var(--cubic-bezier);
-}
-.button-form-send:hover,
-.button-form-send:focus {
+  &:hover,
+  &:focus {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  }
 }

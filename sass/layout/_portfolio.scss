@@ -4,7 +4,7 @@
   margin-left: -30px;
   margin-top: -30px;
 }
-.portfolio-list-item {
+.portfolio-list__item {
   border-right: var(--portfolio-border) 1px solid;
   border-left: var(--portfolio-border) 1px solid;
   border-bottom: var(--portfolio-border) 1px solid;
@@ -12,25 +12,20 @@
   margin-left: 30px;
   margin-top: 30px;
   transition: box-shadow 250ms var(--cubic-bezier);
+  &:hover,
+  &:focus {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+      1px 4px 6px rgba(0, 0, 0, 0.16);
+  }
 }
-.portfolio-list-item:hover,
-.portfolio-list-item:focus {
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-    1px 4px 6px rgba(0, 0, 0, 0.16);
-}
-.card-position {
-  position: relative;
-}
+
 .card {
   overflow: hidden;
   position: relative;
 }
-
-.card-text {
+.card__text {
+  @include font(18px, 1.5, 0.03em);
   font-family: var(--main-font, sans-serif);
-  font-size: 18px;
-  line-height: 1.5;
-  letter-spacing: 0.03em;
   padding: 63px 24px;
   background: rgba(33, 150, 243, 0.9);
   height: 100%;
@@ -40,25 +35,21 @@
   transition: transform 250ms var(--cubic-bezier);
   transform: translateY(100%);
   top: 0;
+  .portfolio-list__item:hover & {
+    transform: translateY(0);
+  }
 }
-.portfolio-list-item:hover .card-text {
-  transform: translateY(0);
-}
-.thumb-portfolio {
+.card__space {
   padding: 20px 24px;
 }
-.title-portfolio-list {
+.card__title {
+  @include font(18px, 2, 0.06em);
   font-family: var(--main-font, sans-serif);
   font-style: normal;
-  font-size: 18px;
-  line-height: 2;
-  letter-spacing: 0.06em;
   color: var(--title-text-color, black);
 }
-.description {
+.card__description {
+  @include font(16px, 1.83, 0.03em);
   font-family: var(--main-font, sans-serif);
-  font-size: 16px;
-  line-height: 1.83;
-  letter-spacing: 0.03em;
   margin-top: 4px;
 }
