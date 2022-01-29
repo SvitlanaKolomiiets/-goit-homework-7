@@ -64,6 +64,7 @@
   font-weight: 500;
   display: flex;
   color: var(--title-text-color, black);
+  margin-left: 93px;
 }
 .header__menu-item:not(:last-child) {
   margin-right: 50px;

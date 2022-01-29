@@ -97,7 +97,6 @@ img {
   font-family: var(--logo-font, sans-serif);
   font-weight: 700;
   text-decoration: none;
-  margin-right: 93px;
 }
 
 .logo-color {
@@ -110,6 +109,7 @@ img {
 
 .footer__logo {
   color: var(--logo-white-color, white);
+  margin-right: 86px;
 }
 
 /* -------global-social-icons-------- */
@@ -282,6 +282,7 @@ img {
   font-weight: 500;
   display: flex;
   color: var(--title-text-color, black);
+  margin-left: 93px;
 }
 
 .header__menu-item:not(:last-child) {
